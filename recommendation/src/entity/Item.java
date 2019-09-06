@@ -57,7 +57,7 @@ public class Item {
 
 	@Override
 	public String toString(){
-		return "event: " + name+ " at id: " + itemId;
+		return "name: " + name  + ",categories: " + categories + "\n";
 	}
 	public JSONObject toJSONObject() {
 		JSONObject obj = new JSONObject();

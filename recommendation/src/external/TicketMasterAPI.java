@@ -36,9 +36,17 @@ public class TicketMasterAPI {
 	private static final String LINE3 = "line3";
 	private static final String CITY = "city";
 	private static final String IMAGES = "images";
+	private static final int PAGE_SIZE = 50;
+	/**
+	 * Keywords
+	 */
 	private static final String CLASSIFICATIONS = "classifications";
 	private static final String SEGMENT = "segment";
-	
+	private static final String GENRE = "genre";
+	private static final String SUBGENRE = "subGenre";
+	private static final String TYPE = "type";
+	private static final String SUBTYPE = "subType";
+	private static final String RADIUS = "50";
 	/* This returns a itemlist used in the API*/
 	private List<Item> getItemList(JSONArray events) throws JSONException{
 		List<Item> itemList = new ArrayList<>();
@@ -141,6 +149,35 @@ public class TicketMasterAPI {
 						categories.add(segment.getString(NAME));
 					}
 				}
+
+				if (!classification.isNull(GENRE)) {
+					JSONObject segment = classification.getJSONObject(GENRE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
+				if (!classification.isNull(SUBGENRE)) {
+					JSONObject segment = classification.getJSONObject(SUBGENRE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
+				if (!classification.isNull(TYPE)) {
+					JSONObject segment = classification.getJSONObject(TYPE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
+				if (!classification.isNull(SUBTYPE)) {
+					JSONObject segment = classification.getJSONObject(SUBTYPE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
 			}
 
 		}
@@ -181,7 +218,7 @@ public class TicketMasterAPI {
 		
 		String geoHash = GeoHash.encodeGeohash(lat, lon, 9);
 		
-		String query = String.format("apikey=%s&geoPoint=%s&keyword=%s&radius=50", API_KEY,geoHash,keyword);
+		String query = String.format("apikey=%s&size=%s&geoPoint=%s&keyword=%s&radius="+RADIUS, API_KEY,PAGE_SIZE,geoHash,keyword);
 		
 		try {
 			HttpURLConnection connection = (HttpURLConnection) new URL(URL+"?"+query).openConnection();
@@ -210,6 +247,7 @@ public class TicketMasterAPI {
 			{
 				JSONObject embedded = obj.getJSONObject("_embedded");
 				JSONArray events = embedded.getJSONArray(EVENTS);
+
 				return getItemList(events);
 			}
 		} catch (Exception e) {
