@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="547197f7-59ef-4b1d-8caa-25911f5c1f6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/db/mysql/MySQLConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/db/mysql/MySQLConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/db/mysql/MySQLDBUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/db/mysql/MySQLDBUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/db/mysql/MySQLTableCreation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/db/mysql/MySQLTableCreation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/mysql/MySQLConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/mysql/MySQLConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/mysql/MySQLDBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/mysql/MySQLDBUtil.java" afterDir="false" />
+    <list default="true" id="b749fe9e-b85d-4797-85f8-015f49b7928b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jupiter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Jupiter.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/src/main/java/com/shangtingli/recommendation/RecommendationApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommendation/src/test/java/com/shangtingli/recommendation/RecommendationApplicationTests.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,12 +29,43 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="2" />
+        </counts>
+      </usages-collector>
     </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rpc/ItemHistory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/external/GeoHash.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,8 +83,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="117" />
+    <option name="x" value="597" />
+    <option name="y" value="276" />
     <option name="width" value="1440" />
     <option name="height" value="808" />
   </component>
@@ -55,24 +94,54 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Jupiter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="recommendation" type="b2602c69:ProjectViewProjectNode" />
               <item name="Jupiter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="recommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jupiter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="recommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jupiter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="recommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jupiter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="external" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="recommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jupiter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="recommendation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Jupiter" type="462c0819:PsiDirectoryNode" />
+              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567755824708" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
@@ -94,24 +163,23 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="547197f7-59ef-4b1d-8caa-25911f5c1f6e" name="Default Changelist" comment="" />
-      <created>1565251328139</created>
+      <changelist id="b749fe9e-b85d-4797-85f8-015f49b7928b" name="Default Changelist" comment="" />
+      <created>1567753980075</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1565251328139</updated>
-      <workItem from="1565251329514" duration="602000" />
-      <workItem from="1565312510595" duration="367000" />
+      <updated>1567753980075</updated>
+      <workItem from="1567753981379" duration="32000" />
+      <workItem from="1567754229038" duration="1167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="969000" />
+    <option name="totallyTimeSpent" value="1199000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="117" width="1440" height="808" extended-state="0" />
-    <editor active="true" />
+    <frame x="597" y="276" width="1440" height="808" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -147,11 +215,27 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/rpc/ItemHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/external/GeoHash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+  </component>
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
