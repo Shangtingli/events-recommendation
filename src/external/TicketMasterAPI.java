@@ -24,7 +24,7 @@ public class TicketMasterAPI {
 	private static final String URL = "https://app.ticketmaster.com/discovery/v2/events.json";
 	private static final String DEFAULT_KEYWORD = "";
 	private static final String API_KEY = "YeLCyLaPenIkoR941WmLjXD4GVvgTNlP";
-	
+
 	private static final String EMBEDDED = "_embedded";
 	private static final String EVENTS = "events";
 	private static final String NAME = "name";
@@ -39,9 +39,17 @@ public class TicketMasterAPI {
 	private static final String LINE3 = "line3";
 	private static final String CITY = "city";
 	private static final String IMAGES = "images";
+	private static final int PAGE_SIZE = 50;
+	/**
+	 * Keywords
+	 */
 	private static final String CLASSIFICATIONS = "classifications";
 	private static final String SEGMENT = "segment";
-	
+	private static final String GENRE = "genre";
+	private static final String SUBGENRE = "subGenre";
+	private static final String TYPE = "type";
+	private static final String SUBTYPE = "subType";
+	private static final String RADIUS = "50";
 	/* This returns a itemlist used in the API*/
 	private List<Item> getItemList(JSONArray events) throws JSONException{
 		List<Item> itemList = new ArrayList<>();
@@ -49,12 +57,12 @@ public class TicketMasterAPI {
 		{
 			JSONObject event = events.getJSONObject(i);
 			ItemBuilder builder = new ItemBuilder();
-			
+
 			if (!event.isNull(ID))
 			{
 				builder.setItemId(event.getString(ID));
 			}
-			
+
 			if (!event.isNull(NAME)) {
 				builder.setName(event.getString(NAME));
 			}
@@ -70,10 +78,10 @@ public class TicketMasterAPI {
 			builder.setAddress(getAddress(event));
 			builder.setCategories(getCategories(event));
 			builder.setImageUrl(getImageUrl(event));
-			
+
 			itemList.add(builder.build());
 		}
-		
+
 		return itemList;
 	}
 	/*Return the first non-empty address of venue*/
@@ -82,33 +90,33 @@ public class TicketMasterAPI {
 			JSONObject embedded = event.getJSONObject(EMBEDDED);
 			if (!embedded.isNull(VENUES)) {
 				JSONArray venues = embedded.getJSONArray(VENUES);
-				
+
 				for (int i = 0; i < venues.length(); i++)
 				{
 					JSONObject venue = venues.getJSONObject(i);
 					StringBuilder sBuilder = new StringBuilder();
-					
+
 					if (!venue.isNull(ADDRESS)) {
 						JSONObject address = venue.getJSONObject(ADDRESS);
 						if (!address.isNull(LINE1))
 						{
 							sBuilder.append(address.getString(LINE1));
 						}
-						
+
 						if (!address.isNull(LINE2))
 						{
-							sBuilder.append('\n');							
+							sBuilder.append('\n');
 							sBuilder.append(address.getString(LINE2));
 						}
-						
+
 						if (!address.isNull(LINE3))
 						{
-							sBuilder.append('\n');							
+							sBuilder.append('\n');
 							sBuilder.append(address.getString(LINE3));
 						}
-						
+
 					}
-					
+
 					if (!venue.isNull(CITY))
 					{
 						JSONObject city = venue.getJSONObject(CITY);
@@ -123,14 +131,14 @@ public class TicketMasterAPI {
 						return result;
 					}
 				}
-				
-				
+
+
 			}
 		}
 		return "";
-		
+
 	}
-	
+
 	/*Return a list of string that represent the category names of an event*/
 	private Set<String> getCategories(JSONObject event) throws JSONException{
 		Set<String> categories = new HashSet<>();
@@ -144,12 +152,41 @@ public class TicketMasterAPI {
 						categories.add(segment.getString(NAME));
 					}
 				}
+
+				if (!classification.isNull(GENRE)) {
+					JSONObject segment = classification.getJSONObject(GENRE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
+				if (!classification.isNull(SUBGENRE)) {
+					JSONObject segment = classification.getJSONObject(SUBGENRE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
+				if (!classification.isNull(TYPE)) {
+					JSONObject segment = classification.getJSONObject(TYPE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
+				if (!classification.isNull(SUBTYPE)) {
+					JSONObject segment = classification.getJSONObject(SUBTYPE);
+					if (!segment.isNull(NAME)) {
+						categories.add(segment.getString(NAME));
+					}
+				}
+
 			}
 
 		}
 		return categories;
 	}
-	
+
 	private String getImageUrl(JSONObject event) throws JSONException{
 		StringBuilder sb = new StringBuilder();
 		if (!event.isNull(IMAGES)) {
@@ -165,9 +202,9 @@ public class TicketMasterAPI {
 		}
 		return "";
 	}
-	
-	
-	
+
+
+
 
 	public List<Item> search(double lat, double lon, String keyword)
 	{
@@ -181,11 +218,11 @@ public class TicketMasterAPI {
 		catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
+
 		String geoHash = GeoHash.encodeGeohash(lat, lon, 9);
-		
-		String query = String.format("apikey=%s&geoPoint=%s&keyword=%s&radius=50", API_KEY,geoHash,keyword);
-		
+
+		String query = String.format("apikey=%s&size=%s&geoPoint=%s&keyword=%s&radius="+RADIUS, API_KEY,PAGE_SIZE,geoHash,keyword);
+
 		try {
 			HttpURLConnection connection = (HttpURLConnection) new URL(URL+"?"+query).openConnection();
 			connection.setRequestMethod("GET");
@@ -196,7 +233,7 @@ public class TicketMasterAPI {
 			// 1. Send the method if the request is not sent.
 			// 2. Get the response code.
 			// Response Code = 200 if the response goes well
-			
+
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream())); //Response is an input with regard to client, output with regard to server
 			//BufferedReader is used to prevent if the stream is very big
 			//connection.getOutputStream(); Request is an output with regard to client, input with regard to server
@@ -207,23 +244,23 @@ public class TicketMasterAPI {
 				response.append(inputLine);
 			}
 			in.close();
-			
+
 			JSONObject obj = new JSONObject(response.toString());
 			if (!obj.isNull("_embedded"))
 			{
 				JSONObject embedded = obj.getJSONObject("_embedded");
 				JSONArray events = embedded.getJSONArray(EVENTS);
+
 				return getItemList(events);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return new ArrayList<Item>();
-		
+
 	}
-	
-	private void queryAPI(double lat, double lon) {
+
+	public void queryAPI(double lat, double lon) {
 		List<Item> itemList = search(lat, lon, null);
 		try {
 			for (Item item : itemList) {
@@ -231,11 +268,11 @@ public class TicketMasterAPI {
 				System.out.println(jsonObject);
 			}
 		}
-				catch (Exception e) {
-						e.printStackTrace();
-				} 
+		catch (Exception e) {
+			e.printStackTrace();
 		}
-	
+	}
+
 	public static void main(String[] args) {
 		TicketMasterAPI tmApi = new TicketMasterAPI();
 		// Mountain View, CA

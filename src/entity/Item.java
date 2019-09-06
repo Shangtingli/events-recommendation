@@ -52,7 +52,11 @@ public class Item {
 	public double getDistance() {
 		return distance;
 	}
-	
+
+	@Override
+	public String toString(){
+		return "name: " + name  + ",categories: " + categories;
+	}
 	public JSONObject toJSONObject() {
 		JSONObject obj = new JSONObject();
 		try {
@@ -69,7 +73,7 @@ public class Item {
 		}
 		return obj;
 	}
-	
+
 	public static class ItemBuilder {
 		private String itemId;
 		private String name;
@@ -111,12 +115,12 @@ public class Item {
 		public void setDistance(double distance) {
 			this.distance = distance;
 		}
-		
+
 		public Item build() {
 			return new Item(this);
 		}
 	}
 
 
-	
+
 }
