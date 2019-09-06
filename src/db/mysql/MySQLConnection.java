@@ -255,7 +255,7 @@ public class MySQLConnection implements DBConnection{
 				//String sql = "SELECT first_name, last_name FROM users WHERE user_id = " + user_id
 				//Above Statement is not very secure
 				//We can set user_id = "1111 OR (1==1)" OR is an operator and could be used to get all user information
-				//Use preparedstatement tells the system to treat user_id as regular string
+				//Use  statement tells the system to treat user_id as regular string
 				String sql = "SELECT first_name, last_name FROM users WHERE user_id = ?";
 				PreparedStatement stmt = conn.prepareStatement(sql);
 				stmt.setString(1, userId);
